@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: my_postgres_treinamento
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - my_network
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio_treinamento
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password123
+    ports:
+      - "9002:9000"  # Porta de acesso ao MinIO Console
+      - "9003:9001"  # Porta de acesso ao MinIO Console Web
+    volumes:
+      - ./minio_data:/data
+    command: server /data --console-address ":9001"
+    restart: always
+    networks:
+      - my_network
+
+networks:
+  my_network:

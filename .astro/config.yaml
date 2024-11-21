@@ -1,0 +1,5 @@
+project:
+    name: projeto-duckdb-airflow
+postgres:
+    port: 5234
+    

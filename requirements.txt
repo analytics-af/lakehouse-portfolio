@@ -1,0 +1,6 @@
+# Astro Runtime includes the following pre-installed providers packages: https://www.astronomer.io/docs/astro/runtime-image-architecture#provider-packages
+duckdb
+apache-airflow-providers-amazon==8.5.1
+boto3==1.28.57
+apache-airflow-providers-airbyte
+deltalake
